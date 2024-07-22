@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Student, EducationDetail
 from .forms import EducationDetailForm
 from django.contrib.auth import logout
-
+from django.contrib.auth.decorators import login_required
 
 # def about_student(request, student_id):
 #     student = get_object_or_404(Student, pk=student_id)
@@ -29,7 +29,7 @@ from django.contrib.auth import logout
 #         'education_detail': education_detail,
 #     }
 #     return render(request, 'about_student.html', context)
-
+# @login_required
 def logout_view(request):
     logout(request)
     return redirect('login')
